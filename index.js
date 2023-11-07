@@ -68,7 +68,7 @@ app.use(cors(
     /*origin:"https://tout-permis5-rd7j.vercel.app/",
     methods:["GET","POST"],
     credentials:true*/
-    origin:"https://toutpermisfront-production.up.railway.app/testDeploy",
+    origin:"https://toutpermisfront-production.up.railway.app/",
     methods:["GET","POST"],
     credentials:true
 
