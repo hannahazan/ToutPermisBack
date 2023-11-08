@@ -69,7 +69,7 @@ app.use(cors(
     methods:["GET","POST"],
     credentials:true*/
     origin:"https://toutpermisfront-production.up.railway.app",
-    methods:["GET","POST"],
+    methods:["GET","POST","PUT","DELETE"],
     credentials:true
 
 }
