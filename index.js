@@ -13,6 +13,41 @@ import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
 
 
+const Pictures=[
+  {
+      "id": 1,
+      "name":"Parking 1",
+      "type": "AIRPORT",
+      "city": "ROISSY EN FRANCE"
+  },
+  {
+      "id": 2,
+      "name":"Parking 2",
+      "type": "AIRPORT",
+      "city": "BEAUVAIS"
+  },
+  {
+      "id": 3,
+      "name":"Parking 3",
+      "type": "AIRPORT",
+      "city": "ORLY"
+  },
+  {
+      "id": 4,
+      "name":"Parking 4",
+      "type": "AIRPORT",
+      "city": "NICE"
+  },
+  {
+      "id": 5,
+      "name":"Parking 5",
+      "type": "AIRPORT",
+      "city": "LILLE"
+  }
+
+
+]
+
 
 const app = express()
 const port = process.env.PORT||5000
@@ -82,7 +117,7 @@ app.use(express.static('public'))
 
 
 app.get("/Pictures",(req, res) => { 
-  res.send("hello world")
+  res.status(200).json(Pictures)
 })
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
