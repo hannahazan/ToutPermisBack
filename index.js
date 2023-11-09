@@ -11,6 +11,7 @@ import routerFicheEquipes from './Routes/Ecole/FicheEquipesRoutes.js';
 import routerFicheVéhicule from './Routes/Ecole/FicheVéhiculeRoute.js';
 import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
+import Pictures from './Pictures.json'
 
 const app = express()
 const port = process.env.PORT||5000
@@ -79,8 +80,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
 app.get("/",(req, res) => {
-  res.status(200).json(Pictures)
-  res.send("Hello World!");
+  res.status(200).json(Pictures);
 })
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
