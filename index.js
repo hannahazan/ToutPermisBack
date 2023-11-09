@@ -83,7 +83,7 @@ app.use(express.static('public'))
 
 
 app.get("/Pictures",(req, res) => { 
-  res.status(200).json(Pictures)
+  res.send("hello world")
 })
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
