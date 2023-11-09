@@ -21,7 +21,7 @@ routerFicheCouverture.post("/", upload.single('file'), async (req, res) => {
       let myFicheCouverture= new FicheCouverture({
         EcoleNameId:req.body.EcoleNameId,
         UserPseudo:req.body.UserPseudo,
-        CouvertureUrl: req.file !==null? "https://toutpermisback-production.up.railway.app/toutpermis-app/public/data/uploads"+ req.file.filename:"",
+        CouvertureUrl: req.file !==null? "https://toutpermisback-production.up.railway.app/toutpermis-app/public/data/uploads/"+ req.file.filename:"",
         PictureName:req.file.originalname, 
         idCouv:req.body.idCouv
       });
