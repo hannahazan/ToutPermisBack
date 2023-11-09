@@ -14,7 +14,6 @@ import routerMessUtil from './Routes/ListeUtilRoute.js';
 
 
 
-const Pictures=require("./Pictures.json")
 const app = express()
 const port = process.env.PORT||5000
 /*const httpServer = createServer();
