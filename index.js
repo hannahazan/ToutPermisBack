@@ -12,7 +12,7 @@ import routerFicheVéhicule from './Routes/Ecole/FicheVéhiculeRoute.js';
 import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
 
-const Pictures = require('./parkings.json')
+
 
 
 const app = express()
@@ -83,7 +83,7 @@ app.use(express.static('public'))
 
 
 app.get("/Pictures",(req, res) => { 
-  res.status(200).json(Pictures);
+  res.send("helloWorld")
 })
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
