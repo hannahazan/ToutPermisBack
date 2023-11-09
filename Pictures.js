@@ -1,4 +1,4 @@
-[
+const Pictures=[
         {
             "id": 1,
             "name":"Parking 1",
@@ -28,7 +28,15 @@
             "name":"Parking 5",
             "type": "AIRPORT",
             "city": "LILLE"
+        },
+    
+        {
+            "id": 6,
+            "name":"Parking 6",
+            "type": "AIRPORT",
+            "city": "Montpellier",
         }
     
-    
 ]
+
+export default Pictures
