@@ -14,7 +14,7 @@ import routerMessUtil from './Routes/ListeUtilRoute.js';
 
 
 
-
+const Pictures=require("./Pictures.json")
 const app = express()
 const port = process.env.PORT||5000
 /*const httpServer = createServer();
@@ -83,7 +83,7 @@ app.use(express.static('public'))
 
 
 app.get("/Pictures",(req, res) => { 
-  res.send("helloWorld")
+  res.status(200).json(Pictures)
 })
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
