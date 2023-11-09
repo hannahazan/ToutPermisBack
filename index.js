@@ -78,7 +78,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
-
+app.get("/",(req, res) => {
+  res.send("Hello World!");
+})
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
 app.use('/FicheEcolePrincipale',routerFicheEcolePrincipale)
