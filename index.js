@@ -88,11 +88,12 @@ app.get("/Pictures",(req, res) => {
   res.status(200).json(Pictures)
 })
 app.get("/Pictures/:id",(req,res)=>{
-  Pictures.findOne({id:req.params.id},(err, data) => {
-    res.send(data)
-    console.log(data)
-  })
+  const id = parseInt(req.params.id)    
+  const Picture = Pictures.find(Picture => Picture.id === id)    
+  res.status(200).json(Picture)
 })
+
+
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
 app.use('/FicheEcolePrincipale',routerFicheEcolePrincipale)
