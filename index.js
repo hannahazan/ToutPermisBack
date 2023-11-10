@@ -88,7 +88,7 @@ app.get("/Pictures",(req, res) => {
   res.status(200).json(Pictures)
 })
 app.get("/Pictures/:id",(req,res)=>{
-  Pictures.find({id:req.params.id},(err, data) => {
+  Pictures.findOne({id:req.params.id},(err, data) => {
     res.send(data)
     console.log(data)
   })
