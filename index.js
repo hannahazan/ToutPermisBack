@@ -11,6 +11,7 @@ import routerFicheEquipes from './Routes/Ecole/FicheEquipesRoutes.js';
 import routerFicheVéhicule from './Routes/Ecole/FicheVéhiculeRoute.js';
 import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
+import pictureRoute from './Routes/PicturesRoutes.js'
 import Pictures from './Pictures.js';
 
 
@@ -84,16 +85,16 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
 
-app.get("/Pictures",(req, res) => { 
+/*app.get("/Pictures",(req, res) => { 
   res.status(200).json(Pictures)
 })
 app.get("/Pictures/:id",(req,res)=>{
   const id = parseInt(req.params.id)    
   const Picture = Pictures.find(Picture => Picture.id === id)    
   res.status(200).json(Picture)
-})
+})*/
 
-
+app.use('/Pictures',pictureRoute)
 app.use('/FicheCouverture',routerFicheCouverture)
 app.use('/FicheLogo',routerFicheLogo)
 app.use('/FicheEcolePrincipale',routerFicheEcolePrincipale)
