@@ -15,7 +15,7 @@ import pictureRoute from './Routes/PicturesRoutes.js';
 import Pictures from './Pictures.js';
 import { readFile } from 'fs/promises';
 
-const json = JSON.parse(
+const dockJson = JSON.parse(
   await readFile(
     new URL('./PicturesTest.json', import.meta.url)
   )
@@ -128,5 +128,5 @@ async function main() {
 })*/
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
-  console.log(json)
+  console.log(dockJson)
 console.log(process.env.PORT)})
