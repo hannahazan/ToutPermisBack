@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import express from 'express';
+import express, { json } from 'express';
 import cors from 'cors'
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -12,7 +12,9 @@ import routerFicheVéhicule from './Routes/Ecole/FicheVéhiculeRoute.js';
 import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
 import pictureRoute from './Routes/PicturesRoutes.js';
+import picturesJson from './PicturesTest.json' assert {type:json}
 import Pictures from './Pictures.js';
+import { assert } from 'console';
 
 
 
@@ -122,4 +124,5 @@ async function main() {
 })*/
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
+  console.log(picturesJson)
 console.log(process.env.PORT)})
