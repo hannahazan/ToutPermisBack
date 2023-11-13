@@ -5,6 +5,7 @@ const pictureRoute= express.Router()
 pictureRoute.use(express.json());
 pictureRoute.use(express.urlencoded({extended: true}))
 import Pictures from "../Pictures.js";
+import { readFile } from 'fs/promises';
 const dockJson = JSON.parse(
   await readFile(
     new URL('./PicturesTest.json', import.meta.url)
