@@ -12,10 +12,14 @@ import routerFicheVéhicule from './Routes/Ecole/FicheVéhiculeRoute.js';
 import routerBlog from './Routes/BlogRoutes.js';
 import routerMessUtil from './Routes/ListeUtilRoute.js';
 import pictureRoute from './Routes/PicturesRoutes.js';
-import picturesJson from './PicturesTest.json' assert {type:json}
 import Pictures from './Pictures.js';
-import { assert } from 'console';
+import { readFile } from 'fs/promises';
 
+const json = JSON.parse(
+  await readFile(
+    new URL('./PicturesTest.json', import.meta.url)
+  )
+);
 
 
 
@@ -124,5 +128,5 @@ async function main() {
 })*/
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
-  console.log(picturesJson)
+  console.log(json)
 console.log(process.env.PORT)})
