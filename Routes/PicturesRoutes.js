@@ -1,4 +1,5 @@
 import express from "express";
+import { json } from "express";
 import multer from "multer"
 import  uuidv4 from 'uuidv4'
 const pictureRoute= express.Router()
@@ -15,7 +16,7 @@ const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
 
 pictureRoute.get('/', function (req, res) {
     dockJson.find((err, data) => {
-       res.send(data)
+       res.status(200).json(data)
        console.log(data)   
      })
    })
