@@ -1,4 +1,4 @@
-import { Express } from "express";
+import express from "express";
 import multer from "multer"
 import  uuidv4 from 'uuidv4'
 const pictureRoute= express.Router()
