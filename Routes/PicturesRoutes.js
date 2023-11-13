@@ -5,12 +5,16 @@ const pictureRoute= express.Router()
 pictureRoute.use(express.json());
 pictureRoute.use(express.urlencoded({extended: true}))
 import Pictures from "../Pictures.js";
-
+const dockJson = JSON.parse(
+  await readFile(
+    new URL('./PicturesTest.json', import.meta.url)
+  )
+);
 const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
 
 pictureRoute.get('/', function (req, res) {
-    Pictures.find((err, data) => {
-       res.send("hello world")
+    dockJson.find((err, data) => {
+       res.send(data)
        console.log(data)   
      })
    })
