@@ -16,7 +16,7 @@ const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
 
 pictureRoute.get('/', function (req, res) {
     dockJson.find((err, data) => {
-       res.send(dockJson)
+       res.send(data)
      })
    })
   
