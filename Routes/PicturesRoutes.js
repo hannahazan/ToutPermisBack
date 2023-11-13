@@ -4,7 +4,7 @@ import  uuidv4 from 'uuidv4'
 const pictureRoute= express.Router()
 pictureRoute.use(express.json());
 pictureRoute.use(express.urlencoded({extended: true}))
-import Pictures from "../Pictures";
+import Pictures from "../Pictures.js";
 
 const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
 
