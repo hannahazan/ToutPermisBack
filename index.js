@@ -29,7 +29,7 @@ const port = process.env.PORT||5000
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: ["https://toutpermisfront-production.up.railway.app","http://localhost:3000"]
 }
 });
 var users = [];
