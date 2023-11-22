@@ -26,7 +26,7 @@ const dockJson = JSON.parse(
 
 const app = express()
 const port = process.env.PORT||5000
-/*const httpServer = createServer();
+const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
     origin: "http://localhost:3000"
@@ -73,14 +73,14 @@ io.on('connection', (socket) => {
   socket.on('connect',()=>{
     console.log(`${socket.id}: A user connected`);
   })
-});*/
+});
 
 app.use(cors(
   {
     /*origin:"https://tout-permis5-rd7j.vercel.app/",
     methods:["GET","POST"],
     credentials:true*/
-    origin:"https://toutpermisfront-production.up.railway.app",
+    origin:["https://toutpermisfront-production.up.railway.app","http://localhost:3000"],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 
@@ -123,9 +123,9 @@ async function main() {
     
 }
 
-/*httpServer.listen(4000,()=>{
+httpServer.listen(4000,()=>{
   console.log("connexion réussi port 4000 socket")
-})*/
+})
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
   console.log(dockJson)
