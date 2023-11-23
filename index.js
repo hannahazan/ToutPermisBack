@@ -26,10 +26,12 @@ const dockJson = JSON.parse(
 
 const app = express()
 const port = process.env.PORT||5000
-const httpServer = createServer();
+const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://toutpermisfront-production.up.railway.app"
+    origin: /*"https://toutpermisfront-production.up.railway.app"*/"http://localhost:3000",
+    methods:["GET","POST","PUT","DELETE"],
+    credentials:true
 }
 });
 var users = [];
@@ -123,10 +125,11 @@ async function main() {
     
 }
 
-httpServer.listen(4000,()=>{
+/*httpServer.listen(4000,()=>{
   console.log("connexion réussi port 4000 socket")
-})
-app.listen(port, () => {
+})*/
+httpServer.listen(port, () => {
   console.log(`app listening on port ${port}`)
   console.log(dockJson)
-console.log(process.env.PORT)})
+console.log(process.env.PORT)
+console.log(httpServer)})
