@@ -14,14 +14,14 @@ import routerMessUtil from './Routes/ListeUtilRoute.js';
 import pictureRoute from './Routes/PicturesRoutes.js';
 import Pictures from './Pictures.js';
 import { readFile } from 'fs/promises';
+import 'dotenv/config'
+import AWS from 'aws-sdk'
 
 const dockJson = JSON.parse(
   await readFile(
     new URL('./PicturesTest.json', import.meta.url)
   )
 );
-
-
 
 
 const app = express()
@@ -130,6 +130,5 @@ async function main() {
 })*/
 httpServer.listen(port, () => {
   console.log(`app listening on port ${port}`)
-  console.log(dockJson)
-console.log(process.env.PORT)
-console.log(httpServer)})
+  console.log(process.env.AWS_ACCESS_KEY_ID)
+  })
