@@ -112,7 +112,7 @@ app.use('/FicheVehicule',routerFicheVéhicule)
 app.use('/Blog',routerBlog)
 app.use('/MessUtil',routerMessUtil)
 
-const db_url='mongodb+srv://hannah:TBlIyaXZd1aS1wgh@cluster0.aailhd7.mongodb.net/Toutpermis?retryWrites=true&w=majority'
+
 
 
 
@@ -132,4 +132,5 @@ httpServer.listen(port, () => {
   console.log(`app listening on port ${port}`)
   console.log(process.env.AWS_ACCESS_KEY_ID)
   console.log(process.env.MONGO_PRIVATE_URL)
+
   })
