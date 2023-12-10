@@ -120,7 +120,7 @@ const db_url='mongodb+srv://hannah:TBlIyaXZd1aS1wgh@cluster0.aailhd7.mongodb.net
 main().catch(err => console.error(err))
 async function main() {
     
-    await mongoose.connect('mongodb+srv://hannah:TBlIyaXZd1aS1wgh@cluster0.aailhd7.mongodb.net/Toutpermis?retryWrites=true&w=majority');
+    await mongoose.connect(process.env.MONGODB_URL);
     console.log("connection réussi");
     
 }
@@ -131,4 +131,5 @@ async function main() {
 httpServer.listen(port, () => {
   console.log(`app listening on port ${port}`)
   console.log(process.env.AWS_ACCESS_KEY_ID)
+  console.log(process.env.MONGODB_URL)
   })
