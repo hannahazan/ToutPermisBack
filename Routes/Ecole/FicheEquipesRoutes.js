@@ -5,8 +5,44 @@ const routerFicheEquipes= express.Router()
 routerFicheEquipes.use(express.json());
 routerFicheEquipes.use(express.urlencoded({extended: true}))
 import FicheEquipes from '../../Models/ModelEcole/FicheEquipesModel.js'
+import multerS3 from "multer-s3"
+import AWS from 'aws-sdk'
+import 'dotenv/config'
 
-const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
+//const upload = multer({ dest: 'toutpermis-app/public/data/uploads' })
+
+const s3 = new AWS.S3({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+});
+console.log("yes ca marche",s3
+)
+
+//fonction qui s'assure que le fichier uploadé est du bon format
+const fileFilter=(req,file,cb)=>{
+  if(file.mimetype.split("/")[0]==="image"){
+    cb(null,true)
+  }
+  else{
+    cb(new Error("file is not of the correct type"),false)
+  }
+}
+
+const upload = 
+  multer({
+    storage: multerS3({
+      s3,
+      bucket: process.env.AWS_BUCKET_NAME,
+      metadata: function (req, file, cb) {
+        cb(null, { fieldName: file.fieldname });
+      },
+      key: function (req, file, cb) {
+        cb(null, `image-${Date.now()}.jpeg`);
+      },
+    }),
+    fileFilter
+  });
+
 
 
 routerFicheEquipes.get('/', function (req, res) {
@@ -34,7 +70,7 @@ routerFicheEquipes.get('/', function (req, res) {
 
 // **CreatePost**/////////////////////////////////////////////////////
 routerFicheEquipes.post("/", upload.single('file'), async (req, res) => {
-    const storage = multer.diskStorage({
+   /* const storage = multer.diskStorage({
       destination: function (req, file, cb) {
         cb(null, 'tmp/dest')
       },
@@ -42,12 +78,13 @@ routerFicheEquipes.post("/", upload.single('file'), async (req, res) => {
         const uniqueSuffix = Date.now() + ' -' + Math.rond(Math.random() * 1E9)
         cb(null, file.fieldname + '-' + uniqueSuffix)
       },
-    })
+    })*/
     if(req.file)
     {
       try {
       let myFicheEquipes = new FicheEquipes({
-        logoUrl: req.file !==null? "/data/uploads/" + req.file.filename:"",
+        //logoUrl: req.file !==null? "/data/uploads/" + req.file.filename:"",
+        logoUrl:req.file.location,
         pictureName:req.file.originalname,
         UserPseudo:req.body.UserPseudo,
         EcoleNameId:req.body.EcoleNameId,
