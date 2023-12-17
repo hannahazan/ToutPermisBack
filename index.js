@@ -130,7 +130,4 @@ async function main() {
 })*/
 httpServer.listen(port, () => {
   console.log(`app listening on port ${port}`)
-  console.log(process.env.AWS_ACCESS_KEY_ID)
-  console.log(process.env.MONGO_PRIVATE_URL)
-
   })
