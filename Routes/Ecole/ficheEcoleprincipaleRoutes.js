@@ -16,6 +16,15 @@ routerFicheEcolePrincipale.get('/', function (req, res) {
       
     })
   })
+
+  /************************Recherche filtre parmis les résultats dans le tableau formation************************************************* */
+  routerFicheEcolePrincipale.get('/formationPermisAm', function (req, res) {
+    FicheEcolePrincipale.find({"Formation.PermisAM": true},(err, data) => {
+       res.send(data)
+       console.log(data)
+       
+     })
+   })
   routerFicheEcolePrincipale.get('/:_id', function (req, res) {
     FicheEcolePrincipale.findById({_id:req.params._id},(err, data) => {
        res.send(data)
