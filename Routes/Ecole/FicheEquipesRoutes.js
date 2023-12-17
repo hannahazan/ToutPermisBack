@@ -15,8 +15,7 @@ const s3 = new AWS.S3({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
-console.log("yes ca marche",s3
-)
+
 
 //fonction qui s'assure que le fichier uploadé est du bon format
 const fileFilter=(req,file,cb)=>{
